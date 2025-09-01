@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toko Baju</title>
+    <link rel="stylesheet" href="../style.scss" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1><a href="index.html">🧥 Toko Baju</a></h1>
+      <nav id="nav-actions" class="hidden">
+        <button id="btn-cart" class="btn">Keranjang (<span id="cart-count">0</span>)</button>
+        <button id="btn-logout" class="btn btn--danger">Logout</button>
+      </nav>
+      <a href="auth.html" id="btn-login" class="btn btn--primary">Login</a>
+    </header>
+
+    <main id="app">
+      <section id="shop-view" class="hidden">
+        <div class="filters card">
+          <input id="q" placeholder="Cari baju..." />
+          <select id="category">
+            <option value="">Semua Kategori</option>
+            <option>Pria</option>
+            <option>Wanita</option>
+            <option>Unisex</option>
+          </select>
+          <select id="size">
+            <option value="">Semua Ukuran</option>
+            <option>S</option>
+            <option>M</option>
+            <option>L</option>
+            <option>XL</option>
+          </select>
+        </div>
+        <div id="products" class="grid"></div>
+      </section>
+
+      <aside id="cart" class="modal-backdrop hidden">
+        <div class="modal">
+          <div class="modal__header">
+            <h2>Keranjang</h2>
+            <button id="cart-close" class="btn">Tutup</button>
+          </div>
+          <div id="cart-items" class="modal__body"></div>
+          <div class="modal__footer">
+            <div>Total: <strong id="cart-total">Rp0</strong></div>
+            <button id="btn-checkout" class="btn btn--primary">Checkout</button>
+          </div>
+        </div>
+      </aside>
+    </main>
+    <div id="toast" class="toast hidden"></div>
+    <script type="module" src="../main.js"></script>
+  </body>
+</html>
