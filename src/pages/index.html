@@ -4,19 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Toko Baju</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="../style.scss" />
   </head>
   <body>
     <header class="app-header">
-      <h1><a href="index.html">🧥 Toko Baju</a></h1>
+      <h1 class="logo"><a href="index.html">Toko Baju</a></h1>
       <nav id="nav-actions" class="hidden">
-        <button id="btn-cart" class="btn">Keranjang (<span id="cart-count">0</span>)</button>
+        <button id="btn-cart" class="btn btn--secondary">
+          Keranjang (<span id="cart-count">0</span>)
+        </button>
         <button id="btn-logout" class="btn btn--danger">Logout</button>
       </nav>
       <a href="auth.html" id="btn-login" class="btn btn--primary">Login</a>
     </header>
 
-    <main id="app">
+    <main id="app" class="container">
       <section id="shop-view" class="hidden">
         <div class="filters card">
           <input id="q" placeholder="Cari baju..." />
@@ -41,11 +49,28 @@
         <div class="modal">
           <div class="modal__header">
             <h2>Keranjang</h2>
-            <button id="cart-close" class="btn">Tutup</button>
+            <button id="cart-close" class="btn btn--icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
           </div>
           <div id="cart-items" class="modal__body"></div>
           <div class="modal__footer">
-            <div>Total: <strong id="cart-total">Rp0</strong></div>
+            <div>
+              Total: <strong id="cart-total">Rp0</strong>
+            </div>
             <button id="btn-checkout" class="btn btn--primary">Checkout</button>
           </div>
         </div>

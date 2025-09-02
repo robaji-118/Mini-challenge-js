@@ -2,9 +2,9 @@
   "name": "toko-baju",
   "version": "1.0.0",
   "description": "A mini clothing store app.",
-  "source": "src/pages/index.html",
+  "source": "src/pages/auth.html",
   "scripts": {
-    "start": "parcel",
+    "start": "parcel --open",
     "build": "parcel build"
   },
   "keywords": [],
