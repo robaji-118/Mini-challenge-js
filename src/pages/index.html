@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../style.scss" />
+    <link rel="stylesheet" href="../styles/_shop.scss" />
   </head>
   <body>
     <header class="app-header">
@@ -27,25 +27,27 @@
     <main id="app" class="container">
       <section id="shop-view" class="hidden">
         <div class="filters card">
-          <input id="q" placeholder="Cari baju..." />
-          <select id="category">
-            <option value="">Semua Kategori</option>
-            <option>Pria</option>
-            <option>Wanita</option>
-            <option>Unisex</option>
-          </select>
-          <select id="size">
-            <option value="">Semua Ukuran</option>
-            <option>S</option>
-            <option>M</option>
-            <option>L</option>
-            <option>XL</option>
-          </select>
+          <div class="filters_bar">
+            <input id="q" placeholder="Cari baju..." />
+            <select id="category">
+              <option value="">Semua Kategori</option>
+              <option>Pria</option>
+              <option>Wanita</option>
+              <option>Unisex</option>
+            </select>
+            <select id="size">
+              <option value="">Semua Ukuran</option>
+              <option>S</option>
+              <option>M</option>
+              <option>L</option>
+              <option>XL</option>
+            </select>
+          </div>
         </div>
         <div id="products" class="grid"></div>
       </section>
 
-      <aside id="cart" class="modal-backdrop hidden">
+      <aside id="cart" class="modal-backdrop">
         <div class="modal">
           <div class="modal__header">
             <h2>Keranjang</h2>
@@ -68,9 +70,7 @@
           </div>
           <div id="cart-items" class="modal__body"></div>
           <div class="modal__footer">
-            <div>
-              Total: <strong id="cart-total">Rp0</strong>
-            </div>
+            <div>Total: <strong id="cart-total">Rp0</strong></div>
             <button id="btn-checkout" class="btn btn--primary">Checkout</button>
           </div>
         </div>

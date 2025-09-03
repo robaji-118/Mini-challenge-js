@@ -1,21 +1,20 @@
-{
-  "name": "toko-baju",
-  "version": "1.0.0",
-  "description": "A mini clothing store app.",
-  "source": "src/pages/auth.html",
-  "scripts": {
-    "start": "parcel --open",
-    "build": "parcel build"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "parcel": "^2.15.4",
-    "sass": "^1.91.0"
-  },
-  "devDependencies": {
-    "@parcel/transformer-sass": "^2.15.4"
+  {
+    "name": "toko-baju",
+    "version": "1.0.0",
+    "description": "A mini clothing store app.",
+    "source": ["src/pages/auth.html","src/pages/index.html"],
+    "scripts": {
+      "start": "parcel --open",
+      "build": "parcel build"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "parcel": "^2.15.4",
+      "sass": "^1.91.0"
+    },
+    "devDependencies": {
+      "@parcel/transformer-sass": "^2.15.4"
+    }
   }
-}

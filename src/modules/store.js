@@ -1,7 +1,11 @@
 import { products } from '../data/products.js';
 import { addProductToCart } from './cart.js';
+import { updateCartCount } from './ui.js';
 
 const productsGrid = document.getElementById('products');
+const cartModal = document.getElementById('cart');
+const btnCart = document.getElementById('btn-cart');
+const cartCloseBtn = document.getElementById('cart-close');
 
 export const renderProducts = (filters = {}) => {
   if (!productsGrid) return;
@@ -22,8 +26,9 @@ export const renderProducts = (filters = {}) => {
   filteredProducts.forEach((product) => {
     const productCard = document.createElement('div');
     productCard.className = 'product-card card';
+    // Gunakan jalur gambar yang benar dan tambahkan onerror untuk debugging
     productCard.innerHTML = `
-      <img src="${product.image}" alt="${product.name}" />
+      <img src="${product.image}" alt="${product.name}" onerror="this.src='https://placehold.co/200x200?text=Gambar%20Tidak%20Ditemukan';" />
       <div class="product-info">
         <h3>${product.name}</h3>
         <p>Rp${product.price.toLocaleString('id-ID')}</p>
@@ -46,6 +51,28 @@ export const setupStoreListeners = () => {
         if (product) {
           addProductToCart(product);
         }
+      }
+    });
+  }
+
+  // Tambahkan event listener untuk membuka dan menutup modal
+  if (btnCart && cartModal) {
+    btnCart.addEventListener('click', () => {
+      cartModal.classList.add('visible');
+    });
+  }
+
+  if (cartCloseBtn && cartModal) {
+    cartCloseBtn.addEventListener('click', () => {
+      cartModal.classList.remove('visible');
+    });
+  }
+
+  // Menutup modal saat mengklik di luar area modal
+  if (cartModal) {
+    cartModal.addEventListener('click', (e) => {
+      if (e.target === cartModal) {
+        cartModal.classList.remove('visible');
       }
     });
   }

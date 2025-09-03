@@ -1,11 +1,15 @@
+
+
 export const products = [
+
+   
   {
     id: 'prod1',
     name: 'Kaos Polos',
     price: 85000,
     category: 'Unisex',
     sizes: ['S', 'M', 'L', 'XL'],
-    image: '../assets/kaos.jpg',
+    image: '../assets/auth.jpg',
   },
   {
     id: 'prod2',
@@ -47,4 +51,22 @@ export const products = [
     sizes: ['S', 'M', 'L'],
     image: '../assets/rok.jpg',
   },
+  {
+    id: 'prod6',
+    name: 'Rok Plisket',
+    price: 95000,
+    category: 'Wanita',
+    sizes: ['S', 'M', 'L'],
+    image: '../assets/rok.jpg',
+  },
+  {
+    id: 'prod6',
+    name: 'Rok Plisket',
+    price: 95000,
+    category: 'Wanita',
+    sizes: ['S', 'M', 'L'],
+    image: '../assets/rok.jpg',
+  },
 ];
+
+ console.log(products);

@@ -1,8 +1,9 @@
 // src/styles/_auth.scss
 
-@import "globals";
+// @import "./globals";
 
 body{
+    display: flex;
 }
 
 #background-video {
@@ -46,7 +47,7 @@ body{
  padding: 3rem;
  display: flex;
  flex-direction: column;
- justify-content: center;
+//  justify-content: center;
  background-color: $card-bg;
  border-radius: 0;
  box-shadow: none;
