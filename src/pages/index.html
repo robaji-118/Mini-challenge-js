@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../styles/_shop.scss" />
   </head>
   <body>
-    <header class="app-header">
+    <header id="app-header" class="app-header">
       <h1 class="logo"><a href="index.html">Toko Baju</a></h1>
       <nav id="nav-actions" class="hidden">
         <button id="btn-cart" class="btn btn--secondary">
@@ -25,6 +25,36 @@
     </header>
 
     <main id="app" class="container">
+      <section id="guest-menu" class="guest">
+        <div class="guest-hero">
+          <h2 class="guest-title">
+            Welcome in My web Eccomerce, Finding your Favorite clothes in Here
+          </h2>
+        </div>
+
+        <div class="featured-products">
+          <h3>Produk Unggulan</h3>
+          <div class="product-carousel">
+            <img
+              src="../assets/auth.jpg"
+              alt="Product 1"
+              class="product-thumbnail"
+            />
+            <img
+              src="../assets/auth.jpg"
+              alt="Product 2"
+              class="product-thumbnail"
+            />
+            <img
+              src="../assets/auth.jpg"
+              alt="Product 3"
+              class="product-thumbnail"
+            />
+          </div>
+        </div>
+        <a href="auth.html" class="btn btn-guest">Login Now</a>
+      </section>
+
       <section id="shop-view" class="hidden">
         <div class="filters card">
           <div class="filters_bar">

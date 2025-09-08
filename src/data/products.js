@@ -1,15 +1,14 @@
-
+import authImg from "../assets/auth.jpg";
 
 export const products = [
 
-   
   {
     id: 'prod1',
     name: 'Kaos Polos',
     price: 85000,
     category: 'Unisex',
     sizes: ['S', 'M', 'L', 'XL'],
-    image: '../assets/auth.jpg',
+    image: authImg,
   },
   {
     id: 'prod2',
@@ -17,7 +16,7 @@ export const products = [
     price: 150000,
     category: 'Pria',
     sizes: ['M', 'L', 'XL'],
-    image: '../assets/kemeja.jpg',
+    image: '../assets/auth.jpg',
   },
   {
     id: 'prod3',
@@ -43,30 +42,7 @@ export const products = [
     sizes: ['28', '30', '32'],
     image: '../assets/chino.jpg',
   },
-  {
-    id: 'prod6',
-    name: 'Rok Plisket',
-    price: 95000,
-    category: 'Wanita',
-    sizes: ['S', 'M', 'L'],
-    image: '../assets/rok.jpg',
-  },
-  {
-    id: 'prod6',
-    name: 'Rok Plisket',
-    price: 95000,
-    category: 'Wanita',
-    sizes: ['S', 'M', 'L'],
-    image: '../assets/rok.jpg',
-  },
-  {
-    id: 'prod6',
-    name: 'Rok Plisket',
-    price: 95000,
-    category: 'Wanita',
-    sizes: ['S', 'M', 'L'],
-    image: '../assets/rok.jpg',
-  },
+ 
 ];
 
  console.log(products);

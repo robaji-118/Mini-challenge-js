@@ -14,7 +14,116 @@ $border-radius: 12px;
 $spacing-unit: 1rem;
 
 
+//////////////// GUEST MENUU
 
+.guest {
+  // justify-content: center;
+  // align-items: center;
+  // text-align: center;
+  
+  margin: 0 auto; 
+  max-width: 1500px; /* Lebar maksimum yang Anda tentukan */
+  // padding: 0 2rem;
+  box-sizing: border-box; /* Memastikan padding tidak membuat overflow */
+  // background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.guest-hero {
+  margin-top: 100px;
+  /* Kontainer untuk konten hero (judul dan teks) */
+  width: 900px; /* Pastikan kontainer mengambil lebar penuh di layar kecil */
+  height: 700px;
+}
+
+.guest-title {
+  /* Perbaikan font-size untuk responsif */
+  font-size: clamp(2.5rem, 8vw, 6.25rem); /* Menggunakan clamp untuk ukuran font responsif */
+  line-height: 1.1;
+  font-weight: 500;
+  color: #212121;
+}
+
+.guest-subtitle {
+  /* Tambahkan subtitle untuk deskripsi */
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: #757575;
+  margin-top: 1rem;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+}
+
+
+.btn-guest {
+  position: fixed;
+  z-index: 100;
+  right: 80px;
+  bottom: 70px;
+  background-color: black;
+  padding: 25px;
+  color: white;
+  font-size: 20px;
+  border-radius: 500px;
+  text-decoration: none;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  animation: pulse 2s infinite;
+}
+
+.btn-guest:hover {
+  background-color: #333;
+  transform: scale(1.05); /* Efek scaling saat dihover */
+}
+
+.featured-products {
+  margin-top: 3rem;
+  padding: 0 2rem;
+}
+
+.featured-products h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #212121;
+  margin-bottom: 2rem;
+}
+
+.product-carousel {
+  display: flex;
+  gap: 20px; /* Jarak antar gambar */
+  overflow-x: auto; /* Memungkinkan scrolling horizontal jika terlalu banyak gambar */
+  justify-content: center; /* Memusatkan item produk di dalam carousel */
+  padding-bottom: 1rem;
+}
+
+.product-thumbnail {
+  width: 250px;
+  height: 300px;
+  object-fit: cover; /* Memastikan gambar mengisi area tanpa terdistorsi */
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.product-thumbnail:hover {
+  transform: translateY(-5px); /* Efek "terangkat" saat di-hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+/////SHOP VIEW
 #shop-view {
   .filters {
     display: flex;

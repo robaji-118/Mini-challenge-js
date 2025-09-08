@@ -28,7 +28,7 @@ export const renderProducts = (filters = {}) => {
     productCard.className = 'product-card card';
     // Gunakan jalur gambar yang benar dan tambahkan onerror untuk debugging
     productCard.innerHTML = `
-      <img src="${product.image}" alt="${product.name}" onerror="this.src='https://placehold.co/200x200?text=Gambar%20Tidak%20Ditemukan';" />
+      <img src="${product.image}" alt="${product.image}" onerror="this.src='https://placehold.co/200x200?text=Gambar%20Tidak%20Ditemukan';" />
       <div class="product-info">
         <h3>${product.name}</h3>
         <p>Rp${product.price.toLocaleString('id-ID')}</p>
