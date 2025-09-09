@@ -56,3 +56,30 @@ if (registerForm) {
     }
   });
 }
+
+
+////////// visivle password
+document.addEventListener('DOMContentLoaded', () => {
+  const passwordToggles = document.querySelectorAll('.password-toggle-icon');
+
+  passwordToggles.forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      // Dapatkan elemen input password yang terkait
+      const passwordInput = toggle.previousElementSibling;
+      const icon = toggle.querySelector('i');
+
+      if (passwordInput.type === 'password') {
+        // Jika tipe input adalah 'password', ubah ke 'text'
+        passwordInput.type = 'text';
+        icon.classList.remove('fa-eye-slash');
+        icon.classList.add('fa-eye');
+      } else {
+        // Jika tipe input adalah 'text', ubah kembali ke 'password'
+        passwordInput.type = 'password';
+        icon.classList.remove('fa-eye');
+        icon.classList.add('fa-eye-slash');
+      }
+    });
+  });
+});
+

@@ -8,6 +8,7 @@ const btnCart = document.getElementById('btn-cart');
 const cartCloseBtn = document.getElementById('cart-close');
 
 export const renderProducts = (filters = {}) => {
+
   if (!productsGrid) return;
   
   const { q = '', category = '', size = '' } = filters;
@@ -24,11 +25,12 @@ export const renderProducts = (filters = {}) => {
   }
 
   filteredProducts.forEach((product) => {
+    console.log(product.image);
     const productCard = document.createElement('div');
     productCard.className = 'product-card card';
     // Gunakan jalur gambar yang benar dan tambahkan onerror untuk debugging
     productCard.innerHTML = `
-      <img src="${product.image}" alt="${product.image}" onerror="this.src='https://placehold.co/200x200?text=Gambar%20Tidak%20Ditemukan';" />
+      <img src="${product.image}" alt="${product.name}" onerror="this.src='https://placehold.co/200x200?text=Gambar%20Tidak%20Ditemukan';" />
       <div class="product-info">
         <h3>${product.name}</h3>
         <p>Rp${product.price.toLocaleString('id-ID')}</p>

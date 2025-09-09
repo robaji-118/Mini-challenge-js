@@ -1,31 +1,51 @@
 /* src/styles/_alerts.scss */
+
+// Global alert container untuk overlay di tengah layar
 .alert-container {
   position: fixed;
-  // top: 1rem;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+// Gaya untuk notifikasi yang muncul di atas layar
+.alert-container.top {
+  position: fixed;
+  top: 2rem;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 1100; /* Pastikan di atas modal */
-  // width: 90%;
-  // max-width: 400px;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  width: 90%;
+  max-width: 400px;
+  background: none;
+  height: auto;
+  z-index: 1100;
+  display: none;
+  animation: fadeInSlide 0.5s ease-out forwards;
+}
 
-  &.visible {
-    opacity: 1;
-    visibility: visible;
-  }
+// Menampilkan alert saat kelas 'visible' ditambahkan
+.alert-container.top.visible {
+  display: block;
 }
 
 .alert {
-  padding: 1rem 1.5rem;
   border-radius: 0.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 1rem 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); // <-- Mengaktifkan kembali box-shadow
+  text-align: left; // <-- Mengubah perataan teks
+  font-weight: bold;
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-weight: bold;
-  
+  width: 100%; // <-- Mengaktifkan kembali lebar 100%
+
   &--success {
     background-color: #d4edda;
     color: #155724;
@@ -53,4 +73,17 @@
   line-height: 1;
   color: inherit;
   cursor: pointer;
+  margin-left: 1rem;
+}
+
+/* Keyframes untuk animasi slide-down */
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
 }

@@ -1,9 +1,8 @@
-// src/styles/_auth.scss
-
-// @import "./globals";
-
-body{
-    display: flex;
+body {
+ display: flex;
+ justify-content: center; /* Pusatkan secara horizontal */
+ align-items: center; /* Pusatkan secara vertikal */
+ min-height: 100vh; /* Pastikan tinggi body minimal 100% viewport */
 }
 
 #background-video {
@@ -16,29 +15,29 @@ body{
  height: auto;
  z-index: -1;
  background-size: cover;
- 
  filter: brightness(0.4); 
 }
 
 .auth-container {
  display: flex;
  justify-content: center;
- align-items: stretch; 
- max-width: 1000px;
+ align-items: center; 
+ max-width: 450px; /* Atur lebar maksimum yang lebih kecil untuk form */
  border-radius: 1.5rem;
  overflow: hidden;
  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
  transition: transform 0.3s ease;
+ background-color: $card-bg; /* Tambahkan warna latar belakang ke container */
 
  &:hover {
- transform: translateY(-5px);
+  transform: translateY(-5px);
  }
 
  @media (max-width: 768px) {
- flex-direction: column;
- margin: 2rem;
- border-radius: 1rem;
- box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  flex-direction: column;
+  margin: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
  }
 }
 
@@ -47,85 +46,43 @@ body{
  padding: 3rem;
  display: flex;
  flex-direction: column;
-//  justify-content: center;
- background-color: $card-bg;
+ justify-content: center; /* Pusatkan konten form secara vertikal */
+ background-color: transparent; /* Ubah latar belakang menjadi transparan */
  border-radius: 0;
  box-shadow: none;
- height: 600px;
+ height: auto; /* Biarkan tinggi menyesuaikan konten */ 
+ width: 600px;
 
  @media (max-width: 768px) {
- padding: 2rem;
+  padding: 2rem;
  }
 }
 
-.auth-image-container {
- flex: 1; 
- display: flex;
- justify-content: center;
- align-items: center;
- background-color: $primary-color; // Menggunakan warna utama sebagai fallback
- position: relative;
- overflow: hidden;
- 
- // Atur ulang properti ::after untuk overlay
- &::after {
- content: '';
- position: absolute;
- top: 0;
- left: 0;
- width: 100%;
- height: 100%;
- background: rgba(0, 0, 0, 0.1);
- z-index: 1;
- }
-
- @media (max-width: 768px) {
- display: none;
- }
-}
-
-.auth-image {
- width: 100%;
- height: 100%;
- object-fit: cover; // Memastikan gambar mengisi kontainer
- display: block;
- z-index: 0;
-}
-
-.auth-image-text {
- position: absolute;
- z-index: 2;
- color: white;
- font-size: 2.5rem;
- font-weight: 700;
- text-align: center;
- text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
- padding: 1rem;
-}
-
+/* Hapus aturan .auth-image-container dan .auth-image */
 
 .tabs {
  display: flex;
  margin-bottom: $spacing-unit * 2;
+//  justify-content: space-between;
  .tab {
- padding: 0.75rem 1.5rem;
- border: none;
- background-color: transparent;
- cursor: pointer;
- font-size: 1rem;
- color:$primary-color;
- border-bottom: 2px solid transparent;
- transition: all 0.3s ease;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 1rem;
+  color:$primary-color;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
 
- &:hover {
-  color: darken($primary-color, 10%);
- }
+  &:hover {
+   color: darken($primary-color, 10%);
+  }
 
- &.active {
-  font-weight: bold;
-  border-color: $primary-color;
-  color: $primary-color;
- }
+  &.active {
+   font-weight: bold;
+   border-color: $primary-color;
+   color: $primary-color;
+  }
  }
 }
 
@@ -134,44 +91,63 @@ body{
  flex-direction: column;
 
  &.visible {
- display: flex;
- animation: fadeIn 0.5s ease-in-out;
+  display: flex;
+  animation: fadeIn 0.5s ease-in-out;
  }
 
  label {
- display: flex;
- flex-direction: column;
- margin-bottom: $spacing-unit * 1.5;
- font-size: 0.9rem;
- font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: $spacing-unit * 1.5;
+  font-size: 0.9rem;
+  font-weight: 600;
 
- input {
-  padding: 0.75rem;
-  border: 1px solid $border-color;
-  border-radius: 0.5rem;
-  margin-top: 0.5rem;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  input {
+   padding: 0.7rem;
+   border: 1px solid $border-color;
+   border-radius: 0.5rem;
+   margin-top: 0.5rem;
+   transition: border-color 0.3s ease, box-shadow 0.3s ease;
+   width: 100%;
+   padding-right: 3rem;
 
-  &:focus {
-  outline: none;
-  border-color: $primary-color;
-  box-shadow: 0 0 0 3px rgba($primary-color, 0.2);
+   &:focus {
+    outline: none;
+    border-color: $primary-color;
+    box-shadow: 0 0 0 3px rgba($primary-color, 0.2);
+   }
   }
  }
- }
  .btn--primary {
- margin-top: $spacing-unit;
+  margin-top: $spacing-unit;
  }
+}
+
+.password-container {
+ position: relative;
+ width: 100%;
+ display: flex;
+ align-items: center;
+}
+
+.password-toggle-icon {
+ position: absolute;
+ right: 1rem;
+ top: 50%;
+ transform: translateY(-50%);
+ cursor: pointer;
+ color: #888;
+ z-index: 2;
 }
 
 // Animasi Fade In
 @keyframes fadeIn {
  from {
- opacity: 0;
- transform: translateY(10px);
+  opacity: 0;
+  transform: translateY(10px);
  }
  to {
- opacity: 1;
- transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
  }
 }

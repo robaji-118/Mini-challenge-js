@@ -33,28 +33,37 @@ export const showAlert = (message, type = 'info') => {
   const alertContainer = document.getElementById('alert');
   const alertMessage = document.getElementById('alert-message');
   const alertCloseBtn = document.getElementById('alert-close');
-  
+
   if (!alertContainer || !alertMessage) return;
 
+  // Setel pesan dan tipe alert
   alertMessage.textContent = message;
-  alertContainer.className = `alert-container visible`;
-  
-  
   const alertBox = alertContainer.querySelector('.alert');
   alertBox.classList.remove('alert--success', 'alert--error', 'alert--info');
-  
-  
   alertBox.classList.add(`alert--${type}`);
 
- 
+  // Tambahkan kelas 'top' dan 'visible' untuk menampilkan alert dengan animasi
+  // Hapus kelas 'hidden' untuk memastikan alert terlihat
+  alertContainer.classList.add('top', 'visible');
+  alertContainer.classList.remove('hidden');
+
+  // Sembunyikan alert secara otomatis setelah 5 detik
   setTimeout(() => {
     alertContainer.classList.remove('visible');
+    // Sembunyikan elemen sepenuhnya setelah animasi selesai
+    setTimeout(() => {
+      alertContainer.classList.add('hidden');
+    }, 500); // Tunggu selama 0.5 detik sesuai durasi animasi
   }, 5000);
 
- 
+  // Tambahkan event listener untuk tombol tutup
   if (alertCloseBtn) {
     alertCloseBtn.onclick = () => {
       alertContainer.classList.remove('visible');
+      // Sembunyikan elemen sepenuhnya setelah animasi selesai
+      setTimeout(() => {
+        alertContainer.classList.add('hidden');
+      }, 500);
     };
   }
 };
