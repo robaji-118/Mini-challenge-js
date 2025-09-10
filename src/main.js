@@ -1,10 +1,11 @@
+// File: src/main.js
+
 import { getAuthUser, logout } from './modules/auth.js';
 import { setupStoreListeners, renderProducts } from './modules/store.js';
-import { setupCartListeners } from './modules/cart.js';
-import { showToast } from './modules/utils.js';
+import { setupCartListeners } from './modules/cart.js'; // Cukup impor setupCartListeners
+import { showToast } from './modules/utils.js'; // Ini juga sudah benar, untuk notifikasi umum
 
 // Pastikan semua kode event listener berada di dalam DOMContentLoaded
-// agar elemen HTML sudah tersedia saat skrip dijalankan.
 document.addEventListener('DOMContentLoaded', () => {
   const qInput = document.getElementById('q');
   const categorySelect = document.getElementById('category');
@@ -19,21 +20,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const header = document.getElementById(`app-header`)
 
   if (user) {
-    // Jika user sudah login
     if (btnLogin) btnLogin.classList.add('hidden');
     if (navActions) navActions.classList.remove('hidden');
     if (shopView) shopView.classList.remove('hidden');
     if (guestMenu) guestMenu.classList.add('hidden');
     renderProducts();
   } else {
-    // Jika user belum login
-    // if (btnLogin) btnLogin.classList.remove('hidden');
-    // if (navActions) navActions.classList.add('hidden');
-    // if (shopView) shopView.classList.add('hidden');
-    // if (guestMenu) guestMenu.classList.remove('hidden');
     if (header) header.classList.add(`hidden`)
   }
 
+  // Panggil setup listeners dari modul yang relevan
   setupStoreListeners();
   setupCartListeners();
 
@@ -44,7 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Event listeners untuk filter harus berada di dalam scope DOMContentLoaded
   if (qInput) {
     qInput.addEventListener('input', () => {
       const filters = {

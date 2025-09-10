@@ -1,4 +1,4 @@
-  @use "globals";
+@use "globals";
 
 $primary-color: black;
 $secondary-color: yellow;
@@ -10,44 +10,40 @@ $border-color: #e2e6ea;
 
 $box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 $border-radius: 12px;
-$border-radius: 12px;
 $spacing-unit: 1rem;
 
-//////////////// GUEST MENUU
+
+
+
+
+//////////////// GUEST MENUU ////////////////
 
 .guest {
-  // justify-content: center;
-  // align-items: center;
-  // text-align: center;
-
   margin: 0 auto;
-  max-width: 1500px; /* Lebar maksimum yang Anda tentukan */
-  // padding: 0 2rem;
-  box-sizing: border-box; /* Memastikan padding tidak membuat overflow */
-  // background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  max-width: 1500px;
+  box-sizing: border-box;
+  padding: 0 $spacing-unit; // Add horizontal padding for smaller screens
 }
 
 .guest-hero {
   margin-top: 100px;
-  /* Kontainer untuk konten hero (judul dan teks) */
-  width: 900px; /* Pastikan kontainer mengambil lebar penuh di layar kecil */
-  height: 700px;
+  width: 900px; // Make it full width on all screens
+  height: auto;
 }
 
 .guest-title {
-  /* Perbaikan font-size untuk responsif */
-  font-size: clamp(
-    2.5rem,
-    8vw,
-    6.25rem
-  ); /* Menggunakan clamp untuk ukuran font responsif */
+  font-size: clamp(2.5rem, 8vw, 6.25rem);
   line-height: 1.1;
   font-weight: 500;
   color: #212121;
+
+  // Add a media query to reduce font size even more on very small screens
+  @media (max-width: 480px) {
+    font-size: clamp(2rem, 7vw, 4rem);
+  }
 }
 
 .guest-subtitle {
-  /* Tambahkan subtitle untuk deskripsi */
   font-size: clamp(1rem, 2vw, 1.25rem);
   color: #757575;
   margin-top: 1rem;
@@ -81,15 +77,29 @@ $spacing-unit: 1rem;
   text-decoration: none;
   transition: transform 0.3s ease, background-color 0.3s ease;
   animation: pulse 2s infinite;
+
+  // Tablet responsive
+  @media (max-width: 1024px) {
+    right: 50px;
+    top: 50px;
+    padding: 20px;
+    font-size: 20px;
+  }
+  // Mobile responsive
+  @media (max-width: 768px) {
+    right: 20px;
+    top: 20px;
+    padding: 15px;
+    font-size: 16px;
+  }
 }
 
 .btn-guest:hover {
   background-color: #333;
-  transform: scale(1.05); /* Efek scaling saat dihover */
+  transform: scale(1.05);
 }
 
 .featured {
-  // Menargetkan .featured-title di dalam .featured
   &-title {
     display: flex;
     justify-content: space-between;
@@ -97,51 +107,61 @@ $spacing-unit: 1rem;
     font-size: 20px;
     line-height: 40px;
     font-weight: 200;
+    margin-top: 50px;
 
-    h3:first-child {
-      text-align: justify;
+    // Mobile responsive: stack the columns
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: $spacing-unit * 2;
     }
 
-    h3:nth-child(2) {
+    h3 {
       text-align: justify;
-    }
-
-    h3:last-child {
-      text-align: justify;
+      font-weight: 500;
     }
   }
 
   &-product {
     display: flex;
+    // flex-wrap: wrap;
     gap: 20px;
     margin-top: 100px;
-    justify-content: space-between;
+    justify-content: center; // Center items when they wrap
 
     .featured-overflow1 {
       flex-shrink: 0;
-      width: 750px;
+      width: 100%; // Default to full width on mobile
+      max-width: 750px;
       position: relative;
       display: flex;
       flex-direction: column;
+
+      // Tablet responsive: 2 columns
+      @media (min-width: 769px) and (max-width: 1024px) {
+        flex-basis: calc(50% - 10px); // 50% width minus half the gap
+        max-width: none; // Reset max-width to allow flexing
+      }
+      // Desktop: your existing layout is already good
+      @media (min-width: 1025px) {
+        width: 750px;
+      }
 
       img {
         width: 100%;
         height: 300px;
         object-fit: cover;
         border-radius: 40px;
-        // Properti untuk membuat gambar lebih gelap
         filter: brightness(60%);
       }
 
       .btn-featured {
         position: absolute;
         z-index: 300;
-        top: 30px; // Jarak dari bawah diperbesar agar tidak terlalu dekat dengan tepi
-        left: 30px; // Jarak dari kiri diperbesar
+        top: 30px;
+        left: 30px;
         color: black;
         background-color: white;
-        padding: 15px; // Menghilangkan padding // Lebar disesuaika
-        // Properti untuk membuat teks lebih modern
+        padding: 15px;
         font-size: 20px;
         border-radius: 30px;
         font-weight: 500;
@@ -150,7 +170,19 @@ $spacing-unit: 1rem;
   }
 }
 
-/////SHOP VIEW
+/////SHOP VIEW /////
+
+.corousel {
+display: flex;
+  overflow: hidden;
+  width: 800px;
+  justify-self: center;
+  transition: transform 0.8s ease-in-out; 
+}
+
+
+
+
 #shop-view {
   .filters {
     display: flex;
@@ -162,51 +194,39 @@ $spacing-unit: 1rem;
     margin-bottom: $spacing-unit;
     border-radius: $border-radius;
     background-color: $card-bg;
-    box-shadow: 14px;
+    box-shadow: $box-shadow; // Corrected box-shadow value
 
-    .filters-bar {
+    .filters_bar { // Fix typo: should be filters_bar
       display: flex;
       flex-wrap: wrap;
       gap: $spacing-unit;
       width: 100%;
 
+      // Tablet and desktop: align horizontally
       @media (min-width: 768px) {
         width: auto;
       }
+
+      // Mobile: stack inputs vertically for better usability
+      @media (max-width: 767px) {
+        flex-direction: column;
+        gap: 10px; // Reduce gap
+      }
     }
 
-    #q {
+    #q, select {
       flex-grow: 1;
-      min-width: 200px;
+      min-width: 100%; // Default to full width on mobile
       padding: 0.75rem 1rem;
       border: 1px solid $border-color;
       border-radius: $border-radius;
       transition: all 0.2s ease-in-out;
       font-size: 1rem;
-      // background-color: ;
       color: $text-color;
-
-      &:focus {
-        border-color: $primary-color;
-        box-shadow: 0 0 0 2px rgba($primary-color, 0.2);
-        outline: none;
-      }
-    }
-
-    select {
-      flex-grow: 1;
-      min-width: 150px;
-      padding: 0.75rem 1rem;
-      border: 1px solid $border-color;
-      border-radius: $border-radius;
-      background-color: white;
-      cursor: pointer;
-      transition: border-color 0.2s ease-in-out;
-      font-size: 1rem;
-      color: $text-color;
-
-      &:hover {
-        border-color: darken($border-color, 10%);
+    
+      // Tablet and desktop: allow inputs to shrink
+      @media (min-width: 768px) {
+        min-width: 150px;
       }
 
       &:focus {
@@ -219,12 +239,24 @@ $spacing-unit: 1rem;
 
   #products {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); // Adjust minmax for smaller screens
     gap: $spacing-unit * 2;
     padding: $spacing-unit * 2;
+    max-width: 1200px;
+    justify-self: center;
+    margin-top: 20px;
+    box-shadow: none; // Remove invalid box-shadow value
+
+    // Mobile responsive: single column
+    @media (max-width: 1060px){
+      max-width: 100%;
+    }
+
 
     @media (max-width: 500px) {
       grid-template-columns: 1fr;
+      padding: $spacing-unit; // Reduce padding
+      max-width: 100%;
     }
   }
 }
@@ -247,6 +279,7 @@ $spacing-unit: 1rem;
     width: 100%;
     height: 200px;
     object-fit: cover;
+    object-position: top;
     border-radius: $border-radius $border-radius 0 0;
   }
 
@@ -259,30 +292,6 @@ $spacing-unit: 1rem;
     h3 {
       margin: 0 0 0.5rem;
       font-weight: 600;
-    }
-
-    .product-details {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: $spacing-unit;
-      span {
-        font-weight: 500;
-      }
-    }
-  }
-
-  .sizes {
-    margin-top: $spacing-unit;
-    margin-bottom: $spacing-unit;
-
-    .size-tag {
-      display: inline-block;
-      padding: 0.25rem 0.5rem;
-      border: 1px solid $border-color;
-      border-radius: $border-radius;
-      margin-right: 0.5rem;
-      font-size: 0.8rem;
     }
   }
 
@@ -303,6 +312,12 @@ $spacing-unit: 1rem;
   }
 }
 
+.btn-card {
+  width: 100px;
+  justify-content: end;
+}
+
+////////////////////
 .modal-backdrop {
   position: fixed;
   top: 0;
@@ -328,7 +343,7 @@ $spacing-unit: 1rem;
   background-color: $card-bg;
   border-radius: 0.5rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  width: 100%;
+  width: 95%; // Adjust width for smaller screens
   max-width: 650px;
   padding: $spacing-unit * 1.5;
   display: flex;
@@ -347,6 +362,10 @@ $spacing-unit: 1rem;
     margin-bottom: $spacing-unit;
     border-bottom: 1px solid $border-color;
     padding-bottom: 10px;
+
+    h2 {
+      font-size: 20px;
+    }
   }
 
   &__body {
@@ -354,6 +373,10 @@ $spacing-unit: 1rem;
     overflow-y: auto;
     max-height: 400px;
     padding-right: 15px;
+
+    @media (max-width: 767px) {
+      max-height: 300px; // Make modal body smaller on mobile
+    }
   }
 
   &__footer {
@@ -366,81 +389,156 @@ $spacing-unit: 1rem;
   }
 }
 
-
-
-
 .cart-item {
- display: flex;
- align-items: center;
- gap: 1rem;
- padding: 1rem 0;
- border-bottom: 1px dashed globals.$border-color;
- 
- &:last-child {
-  border-bottom: none;
- }
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px dashed globals.$border-color;
+
+  &:last-child {
+    border-bottom: none;
+  }
 }
 
 .cart-item-image {
- width: 80px;
- height: 80px;
- flex-shrink: 0;
- 
- img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 0.5rem;
- }
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+  }
 }
 
 .cart-item-details {
- flex-grow: 1;
- display: flex;
- flex-direction: column;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .cart-item-name {
- font-weight: bold;
+  font-weight: bold;
 }
 
 .cart-item-size {
- font-size: 0.9rem;
- color: #6c757d;
- margin-top: 0.25rem;
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-top: 0.25rem;
 }
 
 .cart-item-quantity {
- display: flex;
- align-items: center;
- gap: 0.5rem;
- margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 .cart-item-actions {
- display: flex;
- flex-direction: column;
- align-items: flex-end;
- gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
 }
 
 .cart-item-price {
- font-weight: bold;
- font-size: 1rem;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.btn-cart-close {
+  padding: 7px;
+}
+
+///////////////////
+/// Modal Cart
+
+$light-gray: #d3d3d3;
+
+.product-modal {
+  max-width: 490px;
+}
+
+.product-modal-body {
+  display: flex;
+  gap: 1.5rem;
+  padding: 2rem 0rem;
+
+  // Mobile responsive: stack the image and details vertically
+  @media (max-width: 575px) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &-2 {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    // Ensure the content wraps correctly on smaller screens
+    @media (max-width: 575px) {
+      text-align: center;
+    }
+  }
+
+  .product-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    // Center the image on mobile
+    @media (max-width: 575px) {
+      width: 80%;
+      height: auto;
+      margin-bottom: 1rem;
+    }
+  }
+
+  .product-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .sizes-selection {
+    display: flex;
+    flex-wrap: wrap; // Allow sizes to wrap to a new line
+    justify-content: center; // Center the sizes on mobile
+    gap: 0.75rem;
+
+    .size-option {
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      border: 1px solid $border-color;
+      border-radius: 9999px;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        background-color: $light-gray;
+      }
+
+      &.selected {
+        background-color: $light-gray;
+        color: $primary-color;
+        border-color: $light-gray;
+      }
+    }
+  }
 }
 
 // Gaya tombol tambahan
 .btn--small {
- padding: 0.25rem 0.5rem;
- font-size: 0.8rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.8rem;
 }
 
 .btn--secondary {
- background-color: #f1f1f1;
- color: #333;
- border: 1px solid #ccc;
- 
- &:hover {
-  background-color: #e2e2e2;
- }
+  background-color: #f1f1f1;
+  color: #333;
+  border: 1px solid #ccc;
+
+  &:hover {
+    background-color: #e2e2e2;
+  }
 }
