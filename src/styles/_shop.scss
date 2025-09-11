@@ -8,7 +8,7 @@ $card-bg: #fff;
 $text-color: #343a40;
 $border-color: #e2e6ea;
 
-$box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+$box-shadow: 0 4px 8px rgba(0, 0, 0, 0.10);
 $border-radius: 12px;
 $spacing-unit: 1rem;
 
@@ -172,70 +172,97 @@ $spacing-unit: 1rem;
 
 /////SHOP VIEW /////
 
+.corousel-container {
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    /* Ini adalah elemen pembungkus yang akan memiliki overflow: hidden */
+    overflow: hidden; 
+}
+
 .corousel {
-display: flex;
-  overflow: hidden;
-  width: 800px;
-  justify-self: center;
-  transition: transform 0.8s ease-in-out; 
+    /* Lebar akan diatur oleh JavaScript */
+    /* width: 100%; <--- Hapus ini */ 
+    height: 400px; /* Atur tinggi agar konsisten */
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.banner-item {
+    /* Atur agar setiap banner mengambil 100% dari lebar viewport */
+    flex: 0 0 20%; 
+
+    img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        object-position: center;
+        filter: brightness(0.5);
+    }
 }
 
 
 
 
+
 #shop-view {
-  .filters {
+// Variabel default (sesuaikan sesuai kebutuhan
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: $spacing-unit * 1.5;
+  margin-bottom: $spacing-unit;
+  border-radius: $border-radius;
+  background-color: $card-bg;
+  box-shadow: $box-shadow;
+
+  .filters_bar {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 5px;
-    padding: $spacing-unit * 1.5;
-    margin-bottom: $spacing-unit;
-    border-radius: $border-radius;
-    background-color: $card-bg;
-    box-shadow: $box-shadow; // Corrected box-shadow value
+    gap: $spacing-unit;
+    width: 100%;
 
-    .filters_bar { // Fix typo: should be filters_bar
-      display: flex;
-      flex-wrap: wrap;
-      gap: $spacing-unit;
-      width: 100%;
-
-      // Tablet and desktop: align horizontally
-      @media (min-width: 768px) {
-        width: auto;
-      }
-
-      // Mobile: stack inputs vertically for better usability
-      @media (max-width: 767px) {
-        flex-direction: column;
-        gap: 10px; // Reduce gap
-      }
+    @media (min-width: 768px) {
+      width: auto;
     }
 
-    #q, select {
-      flex-grow: 1;
-      min-width: 100%; // Default to full width on mobile
-      padding: 0.75rem 1rem;
-      border: 1px solid $border-color;
-      border-radius: $border-radius;
-      transition: all 0.2s ease-in-out;
-      font-size: 1rem;
-      color: $text-color;
-    
-      // Tablet and desktop: allow inputs to shrink
-      @media (min-width: 768px) {
-        min-width: 150px;
-      }
-
-      &:focus {
-        border-color: $primary-color;
-        box-shadow: 0 0 0 2px rgba($primary-color, 0.2);
-        outline: none;
-      }
+    @media (max-width: 767px) {
+      flex-direction: column;
+      gap: 0.625rem; // 10px
     }
   }
+
+  #q,
+  select {
+    flex-grow: 1;
+    min-width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    transition: all 0.2s ease-in-out;
+    font-size: 1rem;
+    color: $text-color;
+    background-color: #fff;
+
+    @media (min-width: 768px) {
+      min-width: 150px;
+    }
+
+    &:focus {
+      border-color: $primary-color;
+      box-shadow: 0 0 0 3px rgba($primary-color, 0.25);
+      outline: none;
+      background-color: #fff;
+    }
+  }
+}
+
 
   #products {
     display: grid;
@@ -245,7 +272,7 @@ display: flex;
     max-width: 1200px;
     justify-self: center;
     margin-top: 20px;
-    box-shadow: none; // Remove invalid box-shadow value
+    box-shadow: none; // Remove invalid box-shadow valuef
 
     // Mobile responsive: single column
     @media (max-width: 1060px){
@@ -504,7 +531,6 @@ $light-gray: #d3d3d3;
   .sizes-selection {
     display: flex;
     flex-wrap: wrap; // Allow sizes to wrap to a new line
-    justify-content: center; // Center the sizes on mobile
     gap: 0.75rem;
 
     .size-option {

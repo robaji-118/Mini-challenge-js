@@ -1,149 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Toko Baju</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../styles/_shop.scss" />
-  </head>
-  <body>
-    <header id="app-header" class="app-header">
-      <h1 class="logo"><a href="index.html"></a></h1>
-      <nav id="nav-actions" class="hidden">
-        <button id="btn-cart" class="btn btn--secondary">
-          <i class="fa-solid fa-cart-shopping"></i> </class=> (<span id="cart-count"> 0 </span>)
-        </button>
-        <button id="btn-logout" class="btn btn--danger"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
-      </nav>
-      <a href="auth.html" id="btn-login" class="btn btn--primary">Login</a>
-    </header>
 
-    <main id="app" class="container">
-      <section id="guest-menu" class="guest">
-        <div class="guest-hero">
-          <h2 class="guest-title">
-            Welcome in My web Eccomerce, Finding your Favorite clothes in Here
-          </h2>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toko Baju</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../styles/_shop.scss" />
+</head>
+
+<body>
+  <header id="app-header" class="app-header">
+    <h1 class="logo"><a href="index.html"></a></h1>
+    <nav id="nav-actions" class="hidden">
+      <button id="btn-cart" class="btn btn--secondary">
+        <i class="fa-solid fa-cart-shopping"></i> </class=> (<span id="cart-count"> 0 </span>)
+      </button>
+      <button id="btn-logout" class="btn btn--danger"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+    </nav>
+    <a href="auth.html" id="btn-login" class="btn btn--primary">Login</a>
+  </header>
+
+  <main id="app" class="container">
+    <section id="guest-menu" class="guest">
+      <div class="guest-hero">
+        <h2 class="guest-title">
+          Welcome in My web Eccomerce, Finding your Favorite clothes in Here
+        </h2>
+      </div>
+
+      <div class="featured">
+        <div class="featured-title">
+          <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias, beatae. Nostrum ducimus voluptates
+            quas, laborum, suscipit quis neque ea saepe, enim impedit facilis veniam sapiente minus libero! Quidem, eos
+            soluta.</h3>
+          <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias, beatae. Nostrum ducimus voluptates
+            quas, laborum, suscipit quis neque ea saepe, enim impedit facilis veniam sapiente minus libero! Quidem, eos
+            soluta.</h3>
+          <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias, beatae. Nostrum ducimus voluptates
+            quas, laborum, suscipit quis neque ea saepe, enim impedit facilis veniam sapiente minus libero! Quidem, eos
+            soluta.</h3>
         </div>
 
-        <div class="featured">
-          <div class="featured-title">
-            <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias, beatae. Nostrum ducimus voluptates quas, laborum, suscipit quis neque ea saepe, enim impedit facilis veniam sapiente minus libero! Quidem, eos soluta.</h3>
-            <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias, beatae. Nostrum ducimus voluptates quas, laborum, suscipit quis neque ea saepe, enim impedit facilis veniam sapiente minus libero! Quidem, eos soluta.</h3>
-            <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias, beatae. Nostrum ducimus voluptates quas, laborum, suscipit quis neque ea saepe, enim impedit facilis veniam sapiente minus libero! Quidem, eos soluta.</h3>
+        <div class="featured-product">
+          <div class="featured-overflow1">
+            <a href="" class="btn-featured">Buy Now</a>
+            <img src="../assets/auth.jpg" alt="">
           </div>
 
-          <div class="featured-product">
-            <div class="featured-overflow1">
-              <a href="" class="btn-featured">Buy Now</a>
-              <img src="../assets/auth.jpg" alt="">
-            </div>
-
-            <div class="featured-overflow1">
-              <a href="" class="btn-featured"> Learn It </a>
-              <img src="../assets/auth.jpg" alt="">
-            </div>
+          <div class="featured-overflow1">
+            <a href="" class="btn-featured"> Learn It </a>
+            <img src="../assets/auth.jpg" alt="">
           </div>
         </div>
+      </div>
 
 
 
-        <a href="auth.html" class="btn btn-guest">Login Now</a>
-      </section>
+      <a href="auth.html" class="btn btn-guest">Login Now</a>
+    </section>
 
-      <section id="shop-view" class="hidden">
-        <div class="corousel">
-          <div class="banner-item">
-            <img src="../assets/banner (1).jpg" alt="banner">
-          </div>
-          <div class="banner-item">
-            <img src="../assets/banner (2).jpg" alt="banner">
-          </div>
-          <div class="banner-item">
-            <img src="../assets/banner (1).jpg" alt="banner">
-          </div>
+    <section id="shop-view" class="hidden">
+     <div class="corousel-container">
+       <div class="corousel">
+        <div class="banner-item">
+          <img src="../assets/banner (1).jpg" alt="banner">
         </div>
-        <div class="filters card">
-          <div class="filters_bar">
-            <input id="q" placeholder="Cari baju..." />
-            <select id="category">
-              <option value="">Semua Kategori</option>
-              <option>Pria</option>
-              <option>Wanita</option>
-              <option>Unisex</option>
-            </select>
-            <select id="size">
-              <option value="">Semua Ukuran</option>
-              <option>S</option>
-              <option>M</option>
-              <option>L</option>
-              <option>XL</option>
-            </select>
-          </div>
+        <div class="banner-item">
+          <img src="../assets/banner (2).jpg" alt="banner">
         </div>
-        <div id="products" class="grid"></div>
-      </section>
-
-      <aside id="cart" class="modal-backdrop">
-        <div class="modal">
-          <div class="modal__header">
-            <h2>Your Cart</h2>
-            <button id="cart-close" class="btn btn-cart-close btn--icon">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-              </svg>
-            </button>
-          </div>
-          <div id="cart-items" class="modal__body"></div>
-          <div class="modal__footer">
-            <div>Total: <strong id="cart-total">Rp0</strong></div>
-            <button id="btn-checkout" class="btn btn--primary">Checkout</button>
-          </div>
+        <div class="banner-item">
+          <img src="../assets/banner (3).jpg" alt="banner">
         </div>
-      </aside>
+        <div class="banner-item">
+          <img src="../assets/banner (4).jpg" alt="banner">
+        </div>
+        <div class="banner-item">
+          <img src="../assets/banner.jpg" alt="banner">
+        </div>
+      </div>
+     </div>
 
 
-      <aside id="product-modal" class="modal-backdrop ">
-        <div class="modal product-modal">
-          <div class="modal__header">
-            <h2>Pilih Ukuran</h2>
-            <button id="product-modal-close" class="btn btn-cart-close btn--icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-              </svg>
-            </button>
-          </div>
-          <div id="product-modal-content" class="modal__body product-modal-body">
-            </div>
-          <div class="modal__footer">
-            <div>
-              
-            </div>
-            <button id="add-to-cart-from-modal" class="btn btn--primary" disabled><i class="fa-solid fa-cart-plus"></i></button>
-          </div> 
+      
+      <div class="filters card">
+        <div class="filters_bar">
+          <input id="q" placeholder="Cari baju..." />
+          <select id="category">
+            <option value="">Semua Kategori</option>
+            <option>Pria</option>
+            <option>Wanita</option>
+            <option>Unisex</option>
+          </select>
+          <select id="size">
+            <option value="">Semua Ukuran</option>
+            <option>S</option>
+            <option>M</option>
+            <option>L</option>
+            <option>XL</option>
+          </select>
         </div>
-      </aside>
-    </main>
-    <div id="toast" class="toast hidden"></div>
-    <script type="module" src="../main.js"></script>
-  </body>
+      </div>
+      <div id="products" class="grid"></div>
+    </section>
+
+    <aside id="cart" class="modal-backdrop">
+      <div class="modal">
+        <div class="modal__header">
+          <h2>Your Cart</h2>
+          <button id="cart-close" class="btn btn-cart-close btn--icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        <div id="cart-items" class="modal__body"></div>
+        <div class="modal__footer">
+          <div>Total: <strong id="cart-total">Rp0</strong></div>
+          <button id="btn-checkout" class="btn btn--primary">Checkout</button>
+        </div>
+      </div>
+    </aside>
+
+
+    <aside id="product-modal" class="modal-backdrop ">
+      <div class="modal product-modal">
+        <div class="modal__header">
+          <h2>Pilih Ukuran</h2>
+          <button id="product-modal-close" class="btn btn-cart-close btn--icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        <div id="product-modal-content" class="modal__body product-modal-body">
+        </div>
+        <div class="modal__footer">
+          <div>
+
+          </div>
+          <button id="add-to-cart-from-modal" class="btn btn--primary" disabled><i
+              class="fa-solid fa-cart-plus"></i></button>
+        </div>
+      </div>
+    </aside>
+  </main>
+  <div id="toast" class="toast hidden"></div>
+  <script type="module" src="../main.js"></script>
+</body>
+
 </html>

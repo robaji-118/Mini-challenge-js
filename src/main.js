@@ -4,6 +4,7 @@ import { getAuthUser, logout } from './modules/auth.js';
 import { setupStoreListeners, renderProducts } from './modules/store.js';
 import { setupCartListeners } from './modules/cart.js'; // Cukup impor setupCartListeners
 import { showToast } from './modules/utils.js'; // Ini juga sudah benar, untuk notifikasi umum
+import { setupBannerAutoscroll } from './modules/corousel.js';
 
 // Pastikan semua kode event listener berada di dalam DOMContentLoaded
 document.addEventListener('DOMContentLoaded', () => {
@@ -32,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Panggil setup listeners dari modul yang relevan
   setupStoreListeners();
   setupCartListeners();
+  setupBannerAutoscroll();
 
   if (btnLogout) {
     btnLogout.addEventListener('click', () => {
